@@ -324,6 +324,7 @@ HyperDB.prototype.replicate = function (opts) {
     self._replicating.push(replicate)
     stream.on('close', onclose)
     stream.on('end', onclose)
+    stream.on('error', function (err) { console.log(err); onclose() })
 
     replicate()
 
